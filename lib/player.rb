@@ -1,4 +1,7 @@
 class Player
+  attr_reader :nbr_of_guess_left, :name
+  attr_accessor :user_input
+
   def initialize
     @nbr_of_guess_left = 0
     @name = 'Joris'
@@ -10,10 +13,10 @@ class Player
 
   def user_input
     puts 'Enter a letter'
-    user_input = gets.chomp.upcase
-    puts user_input
+    gets.chomp.upcase
+  end
+
+  def nbr_of_guess
+    @nbr_of_guess_left += 1
   end
 end
-
-player = Player.new
-player.user_input
