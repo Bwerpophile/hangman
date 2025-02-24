@@ -7,3 +7,5 @@ source "https://rubygems.org"
 gem "rubocop", "~> 1.72"
 
 gem "rubocop-performance", "~> 1.24"
+
+gem "json", "~> 2.10"

@@ -39,6 +39,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  json (~> 2.10)
   rubocop (~> 1.72)
   rubocop-performance (~> 1.24)
 
