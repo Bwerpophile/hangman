@@ -4,7 +4,7 @@ require 'json'
 class Dictionnary
   attr_accessor :content
 
-  def initialize(content = '')
+  def initialize(content = nil)
     @content = content.nil? || content.empty? ? File.read('lib/google-10000-english-no-swears.txt') : content
   end
 
@@ -26,7 +26,6 @@ class Dictionnary
   end
 
   def to_json(*_args)
-    puts "Serializing Dictionnary to JSON: #{@content}"
     {
       content: @content
     }.to_json
@@ -34,7 +33,10 @@ class Dictionnary
 
   def self.from_json(string)
     data = JSON.parse(string) || {} # Assure que data est un hash et non nil
-    content = data['content'] || File.read('lib/google-10000-english-no-swears.txt')
+    content = data['content']
+
+    content = File.read('lib/google-10000-english-no-swears.txt') if content.nil? || content.empty?
+
     new(content)
   end
 end
